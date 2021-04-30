@@ -35,4 +35,62 @@ const BgImage = styled.div`
   z-index: -1;
 `;
 
-export { Container, Content, BgImage };
+const CTA = styled.div`
+  max-width: 650px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+`;
+
+const CTALogoOne = styled.img`
+  margin-bottom: 12px;
+  max-width: 600px;
+  min-height: 1px;
+  display: block;
+  width: 100%;
+`;
+
+const SignUp = styled.a`
+  font-weight: bold;
+  color: #f9f9f9;
+  background-color: #0063e5;
+  margin-bottom: 12px;
+  width: 100%;
+  letter-spacing: 1.5px;
+  font-size: 18px;
+  padding: 16.5px 0;
+  border: 1px solid transparent;
+  border-radius: 4px;
+
+  &:hover {
+    background-color: #0483ee;
+    cursor: pointer;
+  }
+`;
+
+const Description = styled.p`
+  color: hsla(0, 0%, 95.3%, 1);
+  font-size: 11px;
+  margin: 0 0 24px;
+  line-height: 1.5;
+  letter-spacing: 1.5px;
+`;
+
+const CTALogoTwo = styled.img`
+  max-width: 600px;
+  margin-bottom: 20px;
+  display: inline-block;
+  vertical-align: bottom;
+  width: 100%;
+`;
+
+export {
+  Container,
+  Content,
+  BgImage,
+  CTA,
+  CTALogoOne,
+  SignUp,
+  Description,
+  CTALogoTwo,
+};
