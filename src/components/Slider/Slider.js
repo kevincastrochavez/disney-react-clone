@@ -1,7 +1,8 @@
 import React from "react";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import Slider from "react-slick";
+
+import { Carousel, Wrap } from "./Slider.styles";
 
 function ImgSlider() {
   let settings = {
@@ -14,23 +15,31 @@ function ImgSlider() {
   };
 
   return (
-    <Slider {...settings}>
-      <div>
-        <h3>1</h3>
-      </div>
+    <Carousel {...settings}>
+      <Wrap>
+        <a>
+          <img src="/images/slider-badging.jpg" alt="" />
+        </a>
+      </Wrap>
 
-      <div>
-        <h3>2</h3>
-      </div>
+      <Wrap>
+        <a>
+          <img src="/images/slider-scale.jpg" alt="" />
+        </a>
+      </Wrap>
 
-      <div>
-        <h3>3</h3>
-      </div>
+      <Wrap>
+        <a>
+          <img src="/images/slider-badag.jpg" alt="" />
+        </a>
+      </Wrap>
 
-      <div>
-        <h3>4</h3>
-      </div>
-    </Slider>
+      <Wrap>
+        <a>
+          <img src="/images/slider-scales.jpg" alt="" />
+        </a>
+      </Wrap>
+    </Carousel>
   );
 }
 

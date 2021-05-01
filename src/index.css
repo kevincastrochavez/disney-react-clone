@@ -13,6 +13,10 @@ body {
   font-family: Avenir-Roman, sans-serif;
 }
 
+body::-webkit-scrollbar {
+  display: none;
+}
+
 a {
   color: #f9f9f9;
   text-decoration: none;
