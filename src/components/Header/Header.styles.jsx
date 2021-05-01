@@ -131,4 +131,27 @@ const DropDown = styled.div`
   opacity: 0;
 `;
 
-export { Nav, Logo, NavMenu, Login, UserImg, DropDown };
+const SignOut = styled.div`
+  position: relative;
+  height: 48px;
+  width: 48px;
+  display: flex;
+  cursor: pointer;
+  align-items: center;
+  justify-content: center;
+
+  ${UserImg} {
+    border-radius: 50%;
+    width: 100%;
+    height: 100%;
+  }
+
+  &:hover {
+    ${DropDown} {
+      opacity: 1;
+      transition-duration: 1s;
+    }
+  }
+`;
+
+export { Nav, Logo, NavMenu, Login, UserImg, DropDown, SignOut };

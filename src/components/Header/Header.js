@@ -3,13 +3,23 @@ import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
 
 import { auth, provider } from "../../firebase";
-import { Logo, Nav, NavMenu, Login, DropDown, UserImg } from "./Header.styles";
 import {
   selectUserName,
   selectUserEmail,
   selectUserPhoto,
   setUserLoginDetails,
+  setSignOutState,
 } from "../../features/user/userSlice";
+
+import {
+  Logo,
+  Nav,
+  NavMenu,
+  Login,
+  DropDown,
+  UserImg,
+  SignOut,
+} from "./Header.styles";
 
 function Header() {
   const dispatch = useDispatch();
@@ -27,14 +37,24 @@ function Header() {
   }, [userName]);
 
   const handleAuth = () => {
-    auth
-      .signInWithPopup(provider)
-      .then((result) => {
-        setUser(result.user);
-      })
-      .catch((error) => {
-        alert(error.message);
-      });
+    if (!userName) {
+      auth
+        .signInWithPopup(provider)
+        .then((result) => {
+          setUser(result.user);
+        })
+        .catch((error) => {
+          alert(error.message);
+        });
+    } else if (userName) {
+      auth
+        .signOut()
+        .then(() => {
+          dispatch(setSignOutState());
+          history.push("/");
+        })
+        .catch((error) => alert(error.message));
+    }
   };
 
   const setUser = (user) => {
@@ -84,11 +104,13 @@ function Header() {
             </a>
           </NavMenu>
 
-          <UserImg src={userPhoto} alt={userName} />
+          <SignOut>
+            <UserImg src={userPhoto} alt={userName} />
 
-          <DropDown>
-            <span onClick={handleAuth}>Sign out</span>
-          </DropDown>
+            <DropDown>
+              <span onClick={handleAuth}>Sign out</span>
+            </DropDown>
+          </SignOut>
         </>
       )}
     </Nav>
