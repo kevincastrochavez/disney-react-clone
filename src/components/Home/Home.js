@@ -1,13 +1,13 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
+import firestore from "../../firebase";
 import ImgSlider from "../Slider/Slider";
 import Viewers from "../Viewers/Viewers";
-import Recommends from "../Recommends/Recommends";
-import NewDisney from "../NewDisney/NewDisney";
+import MovieArray from "../Recommends/MovieArray";
 import { setMovies } from "../../features/movie/movieSlice";
 import { selectUserName } from "../../features/user/userSlice";
-import firestore from "../../firebase";
+import { selectRecommend } from "../../features/movie/movieSlice";
 
 import { Container } from "./Home.styles";
 
@@ -78,8 +78,7 @@ function Home() {
     <Container>
       <ImgSlider />
       <Viewers />
-      <Recommends />
-      <NewDisney />
+      <MovieArray selector={selectRecommend} category="Recommended for You" />
     </Container>
   );
 }

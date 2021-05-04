@@ -2,16 +2,14 @@ import React from "react";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 
-import { selectRecommend } from "../../features/movie/movieSlice";
+import { Container, Content, Wrap } from "./MovieArray.styles";
 
-import { Container, Content, Wrap } from "./Recommends.styles";
-
-function Recommends() {
-  const movies = useSelector(selectRecommend);
+function MovieArray({ selector, category }) {
+  const movies = useSelector(selector);
 
   return (
     <Container>
-      <h4>Recommended for You</h4>
+      <h4>{category}</h4>
       <Content>
         {movies &&
           movies.map((movie, key) => (
@@ -27,4 +25,4 @@ function Recommends() {
   );
 }
 
-export default Recommends;
+export default MovieArray;
