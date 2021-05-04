@@ -5,7 +5,12 @@ import firestore from "../../firebase";
 import ImgSlider from "../Slider/Slider";
 import Viewers from "../Viewers/Viewers";
 import MovieArray from "../Recommends/MovieArray";
-import { setMovies } from "../../features/movie/movieSlice";
+import {
+  selectNewDisney,
+  selectOriginal,
+  selectTrending,
+  setMovies,
+} from "../../features/movie/movieSlice";
 import { selectUserName } from "../../features/user/userSlice";
 import { selectRecommend } from "../../features/movie/movieSlice";
 
@@ -67,18 +72,24 @@ function Home() {
         setMovies({
           recommend: recommends,
           newDisney: newDisneys,
-          origininal: originals,
+          original: originals,
           trending: trendings,
         })
       );
     });
   }, [userName]);
 
+  console.log(originals);
+  console.log(trendings);
+
   return (
     <Container>
       <ImgSlider />
       <Viewers />
       <MovieArray selector={selectRecommend} category="Recommended for You" />
+      <MovieArray selector={selectNewDisney} category="New to Disney+" />
+      <MovieArray selector={selectOriginal} category="Originals" />
+      <MovieArray selector={selectTrending} category="Trending" />
     </Container>
   );
 }
