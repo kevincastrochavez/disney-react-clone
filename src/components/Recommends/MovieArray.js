@@ -2,14 +2,14 @@ import React from "react";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 
-import { Container, Content, Wrap } from "./MovieArray.styles";
+import { Container, Content, Title, Wrap } from "./MovieArray.styles";
 
 function MovieArray({ selector, category }) {
   const movies = useSelector(selector);
 
   return (
     <Container>
-      <h4>{category}</h4>
+      <Title>{category}</Title>
       <Content>
         {movies &&
           movies.map((movie, key) => (

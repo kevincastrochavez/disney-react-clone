@@ -15,6 +15,10 @@ const Content = styled.div`
   }
 `;
 
+const Title = styled.h4`
+  margin-bottom: 5px;
+`;
+
 const Wrap = styled.div`
   padding-top: 56.25%;
   border-radius: 10px;
@@ -47,4 +51,4 @@ const Wrap = styled.div`
   }
 `;
 
-export { Container, Content, Wrap };
+export { Container, Title, Content, Wrap };
