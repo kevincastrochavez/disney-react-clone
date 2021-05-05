@@ -13,6 +13,11 @@ const Nav = styled.nav`
   padding: 0 36px;
   letter-spacing: 16px;
   z-index: 3;
+
+  @media (max-width: 768px) {
+    position: unset;
+    margin-bottom: -60px;
+  }
 `;
 
 const Logo = styled.a`
@@ -62,6 +67,8 @@ const NavMenu = styled.div`
       white-space: nowrap;
       position: relative;
       cursor: pointer;
+      padding-top: 5px;
+      padding-left: 2px;
 
       &:before {
         background-color: rgb(249, 249, 249);
@@ -109,6 +116,10 @@ const Login = styled.a`
     background-color: #f9f9f9;
     color: #000;
     border-color: transparent;
+  }
+
+  @media (max-width: 768px) {
+    z-index: 1;
   }
 `;
 
